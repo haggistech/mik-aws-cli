@@ -1,0 +1,3 @@
+# Server configurations
+aws:
+  region: "eu-west-1"
