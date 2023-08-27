@@ -28,18 +28,24 @@ func main() {
 
   arg := os.Args[1]
 
-  switch {
-case arg == "cb":
-	listMyBuckets(svc)
-  createBucket()
-case arg == "db":
-  deleteBucket()
-	listMyBuckets(svc)
-case arg == "up":
-  uploadObject()
-	listMyBuckets(svc)		
-case arg == "ls":
-  listObjects()
+switch {
+  case arg == "s3cb":
+	  listMyBuckets(svc)
+    createBucket()
+  case arg == "s3db":
+    deleteBucket()
+	  listMyBuckets(svc)
+  case arg == "s3up":
+    uploadObject()
+	  listMyBuckets(svc)		
+  case arg == "s3ls":
+    listObjects()
+  case arg == "sns-list":
+    listTopics()
+  case arg == "sns-create":
+    snsCreate()
+  case arg == "sns-subscribe":
+    topicSubscribe()
 }
 
 
