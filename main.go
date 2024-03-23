@@ -10,9 +10,12 @@ import (
 
 func main() {
 
-	if len(os.Args) < 1 {
-		fmt.Printf("Usage: go run s3.go <the bucket name> <the AWS Region to use>\n" +
-			"Example: go run s3.go my-test-bucket us-east-2\n")
+	if len(os.Args) < 2 {
+		fmt.Printf("Usage: mik-aws-cli <command> <args>\n\n" +
+			" - s3lb: List Buckets\n" +
+			" - s3cb <bucket name>: Create Bucket\n" +
+			" - s3db <bucket name>: Delete Bucket\n" +
+			" - s3ls <bucket name>: List Objects in Bucket\n\n")
 		os.Exit(1)
 	}
 
@@ -27,6 +30,8 @@ func main() {
 	arg := os.Args[1]
 
 	switch {
+	case arg == "s3lb":
+		listMyBuckets(svc)
 	case arg == "s3cb":
 		listMyBuckets(svc)
 		createBucket()
